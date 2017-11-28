@@ -8,7 +8,9 @@ var gulp = require('gulp'),
     rimraf = require("rimraf"),
     concat = require("gulp-concat"),
     cssmin = require("gulp-cssmin"),
-    uglify = require("gulp-uglify");
+    uglify = require("gulp-uglify"),
+    fs = require("fs"),
+    less = require("gulp-less");
 
 var paths = {
     webroot: "./wwwroot/"
@@ -56,3 +58,9 @@ gulp.task("series:second", ["series:first"], function () {
 });
 
 gulp.task("series", ["series:first", "series:second"], function () { });
+
+gulp.task("less", function () {
+    return gulp.src('Styles/main.less')
+        .pipe(less())
+        .pipe(gulp.dest('wwwroot/css'));
+});
