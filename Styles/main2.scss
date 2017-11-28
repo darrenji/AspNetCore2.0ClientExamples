@@ -17,19 +17,19 @@ body {
 
 /*inheritance*/
 
-@mixin alert {
+.alert {
     border: 1px solid black;
     padding: 5px;
     color: #333333;
 }
 
 .success {
-    @include alert;
+    @extend .alert;
     border-color:green;
 }
 
 .error {
-    @include alert;
+    @extend .alert;
     color:red;
     border-color:red;
     font-weight:bold;

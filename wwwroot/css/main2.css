@@ -8,16 +8,15 @@ body {
   border-radius: 10px; }
 
 /*inheritance*/
-.success {
+.alert, .success, .error {
   border: 1px solid black;
   padding: 5px;
-  color: #333333;
+  color: #333333; }
+
+.success {
   border-color: green; }
 
 .error {
-  border: 1px solid black;
-  padding: 5px;
-  color: #333333;
   color: red;
   border-color: red;
   font-weight: bold; }
