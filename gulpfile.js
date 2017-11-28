@@ -1,4 +1,4 @@
-﻿/// <binding BeforeBuild='clean' />
+﻿/// <binding BeforeBuild='clean, min' />
 /*
 This file is the main entry point for defining Gulp tasks and using Gulp plugins.
 Click here to learn more. https://go.microsoft.com/fwlink/?LinkId=518007
@@ -47,6 +47,12 @@ gulp.task("min:css", function () {
 
 gulp.task("min", ["min:js", "min:css"]);
 
-gulp.task("first", function () {
-    console.log('first task!<-----');
+gulp.task("series:first", function () {
+    console.log('first task!<----');
 });
+
+gulp.task("series:second", ["series:first"], function () {
+    console.log('second task!<----');
+});
+
+gulp.task("series", ["series:first", "series:second"], function () { });
