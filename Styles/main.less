@@ -14,3 +14,49 @@ body{
 .bgLight2{color:@lighter2}
 .bgDark {color:@darker}
 .bgDark2 {color:@darker2}
+
+nav {
+    height:40px;
+    width:100%;
+    li {
+        height:38px;
+        width:100px;
+        a {
+            color: #000;
+            &:link {text-decoration:none}
+            &:visited{color:#CC3333;text-decoration:none}
+            &:hover {text-decoration:underline; font-weight:bold}
+            &:active {text-decoration:underline}
+        }
+    }
+}
+
+/*media query*/
+.navigation {
+    margin-top:30%;
+    width:100%;
+    @media screen and (min-width:40em) {
+        margin:0;
+    }
+    @media screen and (min-width:62em) {
+        width:960px;
+        margin:0;
+    }
+}
+
+/*mixins*/
+.box (@color) when (lightness(@color) >= 50%){
+    background-color:#000;
+}
+
+.box (@color) when (lightness(@color) < 50%) {
+    background-color: #FFF;
+}
+
+.box(@color){
+    color: @color;
+}
+
+.feature {
+    .box(@base)
+}
