@@ -1,0 +1,36 @@
+﻿$base: #CC0000;
+body {
+    background-color:$base;
+}
+
+/*mixins*/
+
+@mixin border-radius($radius) {
+    -webkit-border-radius:$radius;
+    -moz-border-radius:$radius;
+    border-radius:$radius;
+}
+
+.box {
+    @include border-radius(10px)
+}
+
+/*inheritance*/
+
+@mixin alert {
+    border: 1px solid black;
+    padding: 5px;
+    color: #333333;
+}
+
+.success {
+    @include alert;
+    border-color:green;
+}
+
+.error {
+    @include alert;
+    color:red;
+    border-color:red;
+    font-weight:bold;
+}
